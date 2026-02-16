@@ -2,6 +2,7 @@ import importlib.util, subprocess, sys
 
 for p in "pyautogui".split():
     if not importlib.util.find_spec(p):
+        print(f"{p} not found. Installing.")
         subprocess.run([sys.executable, "-m", "pip", "install", "--quiet", p], check=True)
 
 import pyautogui
